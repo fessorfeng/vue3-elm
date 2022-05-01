@@ -10,7 +10,9 @@
 let baseUrl = '//elm.cangdu.org';
 let routerMode = 'hash';
 let imgBaseUrl = '';
-
+// localapi, proapi 仓库没有这两个变量
+let localapi = '';
+let proapi = '';
 
 if (process.env.NODE_ENV == 'development') {
     // imgBaseUrl = '/img/';
@@ -24,5 +26,7 @@ if (process.env.NODE_ENV == 'development') {
 export {
 	baseUrl,
 	routerMode,
-	imgBaseUrl,
+  imgBaseUrl,
+  localapi,
+  proapi
 }
