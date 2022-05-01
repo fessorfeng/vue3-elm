@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-
+import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
+import { routerMode } from "../config/env";
 import App from "../App";
 
 import home from "../page/home/home.vue";
@@ -298,9 +298,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: routerMode === 'hash' ? createWebHashHistory() : createWebHistory(process.env.BASE_URL),
   routes,
-  // strict: process.env.NODE_ENV !== "production",
+  strict: process.env.NODE_ENV !== "production",
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
