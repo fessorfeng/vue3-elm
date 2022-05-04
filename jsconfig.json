@@ -8,5 +8,5 @@
     },
     "allowJs": true
   },
-  "exclude": ["node_modules", "dist", "elm"]
+  "exclude": ["node_modules", "dist", "elm", "dll"]
 }

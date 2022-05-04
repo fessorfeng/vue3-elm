@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "../dll"),
-    filename: "[name]_[fullhash:6].dll.js",
+    filename: "[name].dll.js",
     library: "[name]_[fullhash:6]",
   },
   plugins: [

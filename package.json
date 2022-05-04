@@ -7,7 +7,7 @@
   "license": "GPL",
   "scripts": {
     "dev": "cross-env MEASURE=true vue-cli-service serve",
-    "build": "cross-env MEASURE=true vue-cli-service build",
+    "build": "cross-env MEASURE=true1 ANALYZE=true vue-cli-service build",
     "dll": "webpack --progress --config ./build/webpack.dll.conf.js"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@vue/cli-service": "5.0.0-beta.2",
     "@vue/compiler-sfc": "^3.2.33",
+    "add-asset-html-webpack-plugin": "^5.0.2",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "sass": "^1.51.0",
