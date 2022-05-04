@@ -1,0 +1,7 @@
+/*!
+ * better-normal-scroll v1.15.2
+ * (c) 2016-2019 ustbhuangyi
+ * Released under the MIT License.
+ */
+
+/*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */

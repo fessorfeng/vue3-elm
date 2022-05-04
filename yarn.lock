@@ -346,7 +346,7 @@
   resolved "https://registry.npmmirror.com/@vue/cli-plugin-vuex/-/cli-plugin-vuex-5.0.4.tgz#80853992ac4f423e8e3e8d05a120c46a94a81b5e"
   integrity sha512-dBwiD6mT9+V2HTHcwaWE8qFNgTk5I/NUvxYVeUN3Mmmpo4y/1RxXnr7BlKGnaQsTypb2RFk3KowqIJtg7s+E3Q==
 
-"@vue/cli-service@5.0.0-better.2":
+"@vue/cli-service@5.0.0-beta.2":
   version "5.0.0-beta.2"
   resolved "https://registry.npmmirror.com/@vue/cli-service/-/cli-service-5.0.0-beta.2.tgz#7c42dc36d0d9dc8347a5beba65afc5d2df685490"
   integrity sha512-U8l1FK4j0hB7EGFLreemZK8uSzSphd0ISleZP97bTbXvSWf3Orr9Z729ls6fnjEeUeMgGXaJePQByBI+Nb55cA==
@@ -1249,6 +1249,13 @@ clean-css@^5.2.2:
   dependencies:
     source-map "~0.6.0"
 
+clean-webpack-plugin@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/clean-webpack-plugin/-/clean-webpack-plugin-4.0.0.tgz#72947d4403d452f38ed61a9ff0ada8122aacd729"
+  integrity sha512-WuWE1nyTNAyW5T7oNyys2EN0cfP2fdRxhxnIQWiAp0bMabPdHhoGxM8A6YL2GhqwgrPnnaemVE7nv5XJ2Fhh2w==
+  dependencies:
+    del "^4.1.1"
+
 cli-cursor@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmmirror.com/cli-cursor/-/cli-cursor-3.1.0.tgz#264305a7ae490d1d03bf0c9ba7c925d1753af307"
@@ -1479,6 +1486,13 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+cross-env@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.npmmirror.com/cross-env/-/cross-env-7.0.3.tgz#865264b29677dc015ba8418918965dd232fc54cf"
+  integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
+  dependencies:
+    cross-spawn "^7.0.1"
+
 cross-spawn@^6.0.0:
   version "6.0.5"
   resolved "https://registry.npmmirror.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
@@ -1490,7 +1504,7 @@ cross-spawn@^6.0.0:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.3:
+cross-spawn@^7.0.1, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.npmmirror.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -4874,6 +4888,13 @@ spdy@^4.0.2:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+speed-measure-webpack-plugin@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmmirror.com/speed-measure-webpack-plugin/-/speed-measure-webpack-plugin-1.5.0.tgz#caf2c5bee24ab66c1c7c30e8daa7910497f7681a"
+  integrity sha512-Re0wX5CtM6gW7bZA64ONOfEPEhwbiSF/vz6e2GvadjuaPrQcHTQdRGsD8+BE7iUOysXH8tIenkPCQBEcspXsNg==
+  dependencies:
+    chalk "^4.1.0"
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.npmmirror.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -5363,7 +5384,7 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.npmmirror.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webpack-bundle-analyzer@^4.4.0:
+webpack-bundle-analyzer@^4.4.0, webpack-bundle-analyzer@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmmirror.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.5.0.tgz#1b0eea2947e73528754a6f9af3e91b2b6e0f79d5"
   integrity sha512-GUMZlM3SKwS8Z+CKeIFx7CVoHn3dXFcUAjT/dcZQQmfSZGvitPfMob2ipjai7ovFFqPvTqkEZ/leL4O0YOdAYQ==
