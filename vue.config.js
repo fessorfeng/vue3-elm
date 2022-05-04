@@ -11,6 +11,12 @@ const smp = new SpeedMeasurePlugin({
   disable: !isMeasure,
 });
 
+const glob = require('glob')
+const PurgeCSSPlugin = require('purgecss-webpack-plugin')
+const PATHS = {
+  src: path.join(__dirname, 'src')
+}
+
 module.exports = {
   // publicPath: "./",
   configureWebpack: smp.wrap({
@@ -22,6 +28,37 @@ module.exports = {
         __dirname,
         "node_modules/.webpack_temp_cache"
       ),
+    },
+    module: {
+      rules: [{
+        test: /\.(gif|png|jpe?g|svg|webp)$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          },
+        ],
+      }]
     },
     resolve: {
       alias: {
@@ -51,6 +88,9 @@ module.exports = {
         { filepath: path.resolve(__dirname, "./dll/scroll.dll.js") },
         { filepath: path.resolve(__dirname, "./dll/showdown.dll.js") },
       ]),
+      new PurgeCSSPlugin({
+        paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+      }),
     ],
   }),
 };
