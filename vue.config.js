@@ -39,8 +39,8 @@ module.exports = {
     },
     performance: {
       hints: isDev ? false : "warning", // 枚举 false关闭
-      maxEntrypointSize: 500 * 1024, // 最大入口文件大小
-      maxAssetSize: 500 * 1024, // 最大资源文件大小
+      maxEntrypointSize: 300 * 1024, // 最大入口文件大小
+      // maxAssetSize: 300 * 1024, // 最大资源文件大小
     },
     optimization: {
       minimize: true, //代码压缩
@@ -62,6 +62,43 @@ module.exports = {
         minSize: 1 * 1024,
         minChunks: 1,
         name: "common",
+        // 依赖太少，根据路径拆
+        cacheGroups: {
+          shop: {
+            chunks: 'all',
+            // INFO:[\\/] 理解成[], '\', '\/';windows是“\”，这写法参考官网例子
+            // https://www.webpackjs.com/plugins/split-chunks-plugin/#optimization-splitchunks
+            test: /[\\/]shop[\\/]/,
+          },
+          confirmOrder: {
+            chunks: 'all',
+            test: /[\\/]confirmOrder[\\/]/,
+          },
+          profile: {
+            chunks: 'all',
+            test: /[\\/]profile[\\/]/,
+          },
+          order: {
+            chunks: 'all',
+            test: /[\\/]order[\\/]/,
+          },
+          vipcard: {
+            chunks: 'all',
+            test: /[\\/]vipcard[\\/]/,
+          },
+          service: {
+            chunks: 'all',
+            test: /[\\/]service[\\/]/,
+          },
+          balance: {
+            chunks: 'all',
+            test: /[\\/]balance[\\/]/,
+          },
+          benefit: {
+            chunks: 'all',
+            test: /[\\/]benefit[\\/]/,
+          },
+        },
       },
     },
     module: {
@@ -125,9 +162,9 @@ module.exports = {
         { filepath: path.resolve(__dirname, dllPath, "scroll.dll.js") },
         { filepath: path.resolve(__dirname, dllPath, "showdown.dll.js") },
       ]),
-      new PurgeCSSPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      }),
+      // new PurgeCSSPlugin({
+      //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      // }),
     ],
   }),
 };
