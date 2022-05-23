@@ -3,7 +3,6 @@ const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const webpack = require("webpack");
 const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
-
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
@@ -15,7 +14,7 @@ const smp = new SpeedMeasurePlugin({
   disable: !isMeasure,
 });
 
-const glob = require("glob");
+const glob = require("glob-all");
 const PurgeCSSPlugin = require("purgecss-webpack-plugin");
 const PATHS = {
   src: path.join(__dirname, "src"),
@@ -162,9 +161,29 @@ module.exports = {
         { filepath: path.resolve(__dirname, dllPath, "scroll.dll.js") },
         { filepath: path.resolve(__dirname, dllPath, "showdown.dll.js") },
       ]),
-      // new PurgeCSSPlugin({
-      //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      // }),
+      new PurgeCSSPlugin(
+        {
+          paths: glob.sync([path.join(__dirname, "./src/**/*.vue")]),
+          defaultExtractor(content) {
+            const contentWithoutStyleBlocks = content.replace(
+              /<style[^]+?<\/style>/gi,
+              ""
+            );
+            return (
+              contentWithoutStyleBlocks.match(
+                /[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g
+              ) || []
+            );
+          },
+          safelist: [
+            /-(leave|enter|appear)(|-(to|from|active))$/,
+            /^(?!(|.*?:)cursor-move).+-move$/,
+            /^router-link(|-exact)-active$/,
+            /data-v-.*/,
+          ],
+        }
+      )
     ],
+
   }),
 };
